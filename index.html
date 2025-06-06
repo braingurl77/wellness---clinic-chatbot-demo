@@ -46,25 +46,14 @@
       margin-bottom: 1.5rem;
       line-height: 1.4;
     }
-    button.chat-btn {
-      background-color: #0078d7;
-      border: none;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 24px;
+    .chat-instruction {
+      font-weight: bold;
       font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 120, 215, 0.4);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      color: #0078d7;
+      margin-top: 1.5rem;
     }
-    button.chat-btn:disabled {
-      background-color: #a0c4f7;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-    button.chat-btn:hover:enabled {
-      background-color: #005ea3;
-      box-shadow: 0 6px 14px rgba(0, 94, 163, 0.6);
+    .chat-instruction span {
+      color: green;
     }
     footer {
       margin-top: 2rem;
@@ -74,9 +63,8 @@
     }
   </style>
 
-  <!-- UChat widget script -->
+  <!-- Your UChat widget -->
   <script async defer src="https://www.uchat.com.au/js/widget/qvncevxwshmtag77/float.js"></script>
-
 </head>
 <body>
 
@@ -90,44 +78,14 @@
     Need help? I’m your friendly chatbot shark here to swim through your questions, book your appointments, and keep you smiling along the way!  
     (No bite, promise! 😉)
   </p>
-  <button id="chatBtn" class="chat-btn" disabled>Start Chatting Now!</button>
+  <p class="chat-instruction">
+    Please click the <span>green chat bubble</span> at the bottom right to start chatting!
+  </p>
 </main>
 
 <footer>
   Powered by YourChatbotCompany
 </footer>
 
-<script>
-  function waitForWidgetLoad(callback) {
-    let attempts = 0;
-    const maxAttempts = 20;
-    const interval = 300; // ms
-
-    function check() {
-      if (window.UChatWidget && typeof window.UChatWidget.open === 'function') {
-        callback();
-      } else if (attempts < maxAttempts) {
-        attempts++;
-        setTimeout(check, interval);
-      } else {
-        console.warn('UChat widget failed to load after waiting.');
-      }
-    }
-    check();
-  }
-
-  waitForWidgetLoad(() => {
-    const btn = document.getElementById('chatBtn');
-    if (btn) {
-      btn.disabled = false;
-      btn.addEventListener('click', () => {
-        window.UChatWidget.open();
-      });
-      console.log('Chat button enabled and ready.');
-    }
-  });
-</script>
-
 </body>
 </html>
-
