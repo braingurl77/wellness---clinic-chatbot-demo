@@ -24,16 +24,11 @@
     }
     h1.page-title {
       font-weight: 700;  /* bold */
-      font-size: 3rem;
-      margin: 0 0 0.5rem 0;
+      font-size: 6rem; /* 2 sizes bigger */
+      margin: 0 0 1rem 0;
       color: #000000; /* black */
-      /* removed text-shadow for crisp black */
-    }
-    header {
-      font-size: 2.5rem;
-      margin: 0 0 1.2rem 0;
-      color: #0078d7;
-      text-shadow: 1px 1px 2px #9ccfff;
+      text-decoration: underline;
+      user-select: none;
     }
     main {
       max-width: 420px;
@@ -66,11 +61,11 @@
       position: relative;
       z-index: 10;
     }
-    /* Bubble styles and animation */
+    /* Black bubbles styles and animation */
     .bubble {
       position: absolute;
-      bottom: 20px;
-      background: rgba(245, 241, 8, 0.6);
+      bottom: 75px; /* approximate mouth height */
+      background: rgba(0, 0, 0, 0.8);
       border-radius: 50%;
       opacity: 0.7;
       animation-name: bubble-float;
@@ -91,7 +86,7 @@
     .bubble:nth-child(1) {
       width: 15px;
       height: 15px;
-      left: 30%;
+      left: 44%;  /* near shark mouth center */
       animation-duration: 5s;
       animation-delay: 0s;
     }
@@ -112,14 +107,14 @@
     .bubble:nth-child(4) {
       width: 8px;
       height: 8px;
-      left: 60%;
+      left: 53%;
       animation-duration: 5.5s;
       animation-delay: 2s;
     }
     .bubble:nth-child(5) {
       width: 18px;
       height: 18px;
-      left: 70%;
+      left: 38%;
       animation-duration: 6.5s;
       animation-delay: 1s;
     }
@@ -165,32 +160,12 @@
 <body>
 
 <h1 class="page-title">Wellness Chatbot Demo</h1>
-<header>
-  🦈 Hey There! Ready to Dive into Chat? 🦈
-</header>
 
 <main>
   <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
+  
+  <!-- bubbles positioned to float from the shark's mouth -->
   <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-
-  <p>
-    Need help? I’m your friendly chatbot shark here to swim through your questions, book your appointments, and keep you smiling along the way!  
-    (No bite, promise! 😉)
-  </p>
-  <p class="chat-instruction">
-    Please click the <span>green chat bubble</span> at the bottom right to start chatting!
-  </p>
-</main>
-
-<footer>
-  Powered by BrainBotCompany
-</footer>
-
-</body>
-</html>
+  <
 
 </html>
