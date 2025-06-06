@@ -36,8 +36,14 @@
       padding: 2rem 1.5rem;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0, 120, 215, 0.25);
-      position: relative;
+      position: relative; /* needed for bubbles absolute positioning */
       overflow: visible;
+    }
+    /* Container around shark to position bubbles exactly relative to shark */
+    .shark-container {
+      position: relative;
+      width: 180px;
+      margin: 1rem auto 1.5rem;
     }
     /* Shark wiggle animation */
     @keyframes shark-wiggle {
@@ -52,8 +58,7 @@
       }
     }
     img.shark {
-      max-width: 180px;
-      margin: 1rem auto 1.5rem;
+      width: 100%;
       display: block;
       user-select: none;
       pointer-events: none;
@@ -64,7 +69,7 @@
     /* Black bubbles styles and animation */
     .bubble {
       position: absolute;
-      bottom: 75px; /* approximate mouth height */
+      bottom: 40px; /* adjusted to approximate shark mouth inside container */
       background: rgba(0, 0, 0, 0.8);
       border-radius: 50%;
       opacity: 0.7;
@@ -162,10 +167,22 @@
 <h1 class="page-title">Wellness Chatbot Demo</h1>
 
 <main>
-  <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
-  
-  <!-- bubbles positioned to float from the shark's mouth -->
-  <div class="bubble"></div>
-  <
+
+  <div class="shark-container">
+    <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
+    <!-- Bubbles are children of the shark container -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <p>
+    Need help? I’m your friendly chatbot shark here to swim through your questions, book your appointments, and keep you smiling along the way!  
+    (No bite, promise! 😉)
+  </p>
+  <p class="chat-instruction">
+    Please click the <span>
 
 </html>
