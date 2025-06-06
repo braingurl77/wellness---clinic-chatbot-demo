@@ -9,30 +9,51 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
-    /* Reset & base */
     body {
       font-family: 'Comic Neue', Comic Sans MS, cursive, sans-serif;
-      margin: 0; 
+      margin: 0;
       padding: 1.5rem;
       background: #d0f0fd; /* soft pastel blue */
       color: #1a1a1a;
       display: flex;
       flex-direction: column;
-      align-items: center;
       min-height: 100vh;
-      /* Use flexbox to center main vertically */
-      justify-content: center;
+      align-items: center;
       text-align: center;
     }
 
-    /* Title */
+    /* Fixed top title */
     h1.page-title {
       font-weight: 700; /* bold */
       font-size: 5.5rem; /* approx 2 sizes bigger */
       color: black;
       text-decoration: underline;
-      margin-bottom: 0.3rem;
+      margin: 0 0 1.5rem 0;
       user-select: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #d0f0fd;
+      width: 100%;
+      max-width: 100vw;
+      z-index: 20;
+      padding: 0.7rem 0;
+      box-sizing: border-box;
+    }
+
+    /* Container for subtitle + main to center vertically below fixed title */
+    .content-wrapper {
+      margin-top: 8.5rem; /* space for fixed title */
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 440px;
+      padding: 0 1rem;
+      box-sizing: border-box;
     }
 
     /* Subtitle below title */
@@ -45,10 +66,8 @@
       font-weight: 600;
     }
 
-    /* White content container */
     main {
       background: white;
-      max-width: 420px;
       width: 100%;
       padding: 2rem 1.5rem;
       border-radius: 16px;
@@ -56,7 +75,6 @@
       position: relative;
     }
 
-    /* Shark container to position bubbles */
     .shark-container {
       position: relative;
       width: 180px;
@@ -86,10 +104,9 @@
       z-index: 10;
     }
 
-    /* Bubbles floating up */
+    /* Black bubbles floating from shark's mouth */
     .bubble {
       position: absolute;
-      bottom: 40px; /* roughly where shark's mouth is */
       background: rgba(0, 0, 0, 0.8);
       border-radius: 50%;
       opacity: 0.7;
@@ -97,6 +114,7 @@
       animation-timing-function: ease-in;
       animation-iteration-count: infinite;
       z-index: 5;
+      bottom: 70px; /* adjusted up for mouth */
     }
 
     @keyframes bubble-float {
@@ -114,47 +132,45 @@
     .bubble:nth-child(1) {
       width: 15px;
       height: 15px;
-      left: 44%;
+      left: 46%;
       animation-duration: 5s;
       animation-delay: 0s;
     }
     .bubble:nth-child(2) {
       width: 10px;
       height: 10px;
-      left: 50%;
+      left: 52%;
       animation-duration: 6s;
       animation-delay: 1.5s;
     }
     .bubble:nth-child(3) {
       width: 12px;
       height: 12px;
-      left: 40%;
+      left: 42%;
       animation-duration: 4s;
       animation-delay: 0.8s;
     }
     .bubble:nth-child(4) {
       width: 8px;
       height: 8px;
-      left: 53%;
+      left: 55%;
       animation-duration: 5.5s;
       animation-delay: 2s;
     }
     .bubble:nth-child(5) {
       width: 18px;
       height: 18px;
-      left: 38%;
+      left: 40%;
       animation-duration: 6.5s;
       animation-delay: 1s;
     }
 
-    /* Paragraph below shark */
     p.description {
       font-size: 1.2rem;
       margin: 0 0 1.5rem 0;
       line-height: 1.4;
     }
 
-    /* Chat instruction bubble styling */
     .chat-instruction {
       font-weight: bold;
       font-size: 1.15rem;
@@ -194,32 +210,32 @@
 </head>
 <body>
 
-  <!-- Title -->
   <h1 class="page-title">Wellness Chatbot Demo</h1>
 
-  <!-- Subtitle above white box -->
-  <p class="subtitle">🦈 Hey There! Ready to Dive into Chat? 🦈</p>
+  <div class="content-wrapper">
+    <p class="subtitle">🦈 Hey There! Ready to Dive into Chat? 🦈</p>
 
-  <main>
-    <div class="shark-container">
-      <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
-      <!-- 5 black bubbles -->
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-      <div class="bubble"></div>
-    </div>
+    <main>
+      <div class="shark-container">
+        <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
+        <!-- bubbles coming from shark's mouth -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+      </div>
 
-    <p class="description">
-      Need help? I’m your friendly chatbot shark here to swim through your questions, book your appointments, and keep you smiling along the way!  
-      (No bite, promise! 😉)
-    </p>
+      <p class="description">
+        Need help? I’m your friendly chatbot shark here to swim through your questions, book your appointments, and keep you smiling along the way!  
+        (No bite, promise! 😉)
+      </p>
 
-    <p class="chat-instruction">
-      Please click the <span>green chat bubble</span> at the bottom right to start chatting!
-    </p>
-  </main>
+      <p class="chat-instruction">
+        Please click the <span>green chat bubble</span> at the bottom right to start chatting!
+      </p>
+    </main>
+  </div>
 
   <footer>
     Powered by BrainBotCompany
@@ -228,6 +244,5 @@
 </body>
 </html>
 
-</html>
 
 
