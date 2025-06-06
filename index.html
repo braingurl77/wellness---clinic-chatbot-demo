@@ -20,6 +20,8 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      /* Use flexbox to center main vertically */
+      justify-content: center;
       text-align: center;
     }
 
@@ -29,8 +31,18 @@
       font-size: 5.5rem; /* approx 2 sizes bigger */
       color: black;
       text-decoration: underline;
+      margin-bottom: 0.3rem;
+      user-select: none;
+    }
+
+    /* Subtitle below title */
+    p.subtitle {
+      font-size: 1.4rem;
+      color: #0078d7; /* nice blue */
+      margin-top: 0;
       margin-bottom: 2rem;
       user-select: none;
+      font-weight: 600;
     }
 
     /* White content container */
@@ -136,7 +148,7 @@
     }
 
     /* Paragraph below shark */
-    p {
+    p.description {
       font-size: 1.2rem;
       margin: 0 0 1.5rem 0;
       line-height: 1.4;
@@ -185,8 +197,10 @@
   <!-- Title -->
   <h1 class="page-title">Wellness Chatbot Demo</h1>
 
-  <main>
+  <!-- Subtitle above white box -->
+  <p class="subtitle">🦈 Hey There! Ready to Dive into Chat? 🦈</p>
 
+  <main>
     <div class="shark-container">
       <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
       <!-- 5 black bubbles -->
@@ -197,7 +211,7 @@
       <div class="bubble"></div>
     </div>
 
-    <p>
+    <p class="description">
       Need help? I’m your friendly chatbot shark here to swim through your questions, book your appointments, and keep you smiling along the way!  
       (No bite, promise! 😉)
     </p>
@@ -205,11 +219,10 @@
     <p class="chat-instruction">
       Please click the <span>green chat bubble</span> at the bottom right to start chatting!
     </p>
-
   </main>
 
   <footer>
-    Powered by BrainBotCompany
+    Powered by YourChatbotCompany
   </footer>
 
 </body>
