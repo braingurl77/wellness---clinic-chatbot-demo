@@ -16,13 +16,22 @@
       flex-direction: column;
       min-height: 100vh;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+    h1.page-title {
+      font-weight: 700;  /* bold */
+      font-size: 3rem;
+      margin: 0 0 0.5rem 0;
+      color: #000000; /* black */
+      /* removed text-shadow for crisp black */
     }
     header {
       font-size: 2.5rem;
-      margin-bottom: 0.2rem;
+      margin: 0 0 1.2rem 0;
       color: #0078d7;
       text-shadow: 1px 1px 2px #9ccfff;
     }
@@ -32,6 +41,20 @@
       padding: 2rem 1.5rem;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0, 120, 215, 0.25);
+      position: relative;
+      overflow: visible;
+    }
+    /* Shark wiggle animation */
+    @keyframes shark-wiggle {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(5deg);
+      }
+      75% {
+        transform: rotate(-5deg);
+      }
     }
     img.shark {
       max-width: 180px;
@@ -40,7 +63,67 @@
       user-select: none;
       pointer-events: none;
       animation: shark-wiggle 3s ease-in-out infinite;
+      position: relative;
+      z-index: 10;
     }
+    /* Bubble styles and animation */
+    .bubble {
+      position: absolute;
+      bottom: 20px;
+      background: rgba(245, 241, 8, 0.6);
+      border-radius: 50%;
+      opacity: 0.7;
+      animation-name: bubble-float;
+      animation-timing-function: ease-in;
+      animation-iteration-count: infinite;
+    }
+    @keyframes bubble-float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-150px) scale(1.3);
+        opacity: 0;
+      }
+    }
+    /* Each bubble unique size, position, duration and delay */
+    .bubble:nth-child(1) {
+      width: 15px;
+      height: 15px;
+      left: 30%;
+      animation-duration: 5s;
+      animation-delay: 0s;
+    }
+    .bubble:nth-child(2) {
+      width: 10px;
+      height: 10px;
+      left: 50%;
+      animation-duration: 6s;
+      animation-delay: 1.5s;
+    }
+    .bubble:nth-child(3) {
+      width: 12px;
+      height: 12px;
+      left: 40%;
+      animation-duration: 4s;
+      animation-delay: 0.8s;
+    }
+    .bubble:nth-child(4) {
+      width: 8px;
+      height: 8px;
+      left: 60%;
+      animation-duration: 5.5s;
+      animation-delay: 2s;
+    }
+    .bubble:nth-child(5) {
+      width: 18px;
+      height: 18px;
+      left: 70%;
+      animation-duration: 6.5s;
+      animation-delay: 1s;
+    }
+
     p {
       font-size: 1.2rem;
       margin-top: 0;
@@ -68,17 +151,6 @@
       font-weight: 900;
       text-shadow: 0 0 6px #59E115aa;
     }
-    @keyframes shark-wiggle {
-      0%, 100% {
-        transform: rotate(0deg);
-      }
-      25% {
-        transform: rotate(5deg);
-      }
-      75% {
-        transform: rotate(-5deg);
-      }
-    }
     footer {
       margin-top: 2rem;
       font-size: 0.9rem;
@@ -92,12 +164,19 @@
 </head>
 <body>
 
+<h1 class="page-title">Wellness Chatbot Demo</h1>
 <header>
   🦈 Hey There! Ready to Dive into Chat? 🦈
 </header>
 
 <main>
   <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+
   <p>
     Need help? I’m your friendly chatbot shark here to swim through your questions, book your appointments, and keep you smiling along the way!  
     (No bite, promise! 😉)
@@ -108,8 +187,10 @@
 </main>
 
 <footer>
-  Powered by YourChatbotCompany
+  Powered by BrainBotCompany
 </footer>
 
 </body>
+</html>
+
 </html>
