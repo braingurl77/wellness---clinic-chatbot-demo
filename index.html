@@ -39,6 +39,7 @@
       display: block;
       user-select: none;
       pointer-events: none;
+      animation: shark-wiggle 3s ease-in-out infinite;
     }
     p {
       font-size: 1.2rem;
@@ -49,16 +50,34 @@
     .chat-instruction {
       font-weight: bold;
       font-size: 1.15rem;
-      color: #0078d7;
+      color: #59E115;  /* bright lime green */
       margin-top: 1.5rem;
-      background: #e0f7e9;
+      background: rgba(245, 241, 8, 1); /* bright yellow */
       border-radius: 20px;
       padding: 12px 20px;
-      box-shadow: 0 4px 8px rgba(0, 120, 87, 0.15);
+      box-shadow: 0 4px 8px rgba(89, 225, 21, 0.4);
       display: inline-block;
+      transition: box-shadow 0.3s ease;
+    }
+    .chat-instruction:hover {
+      box-shadow: 0 6px 16px rgba(89, 225, 21, 0.7);
+      cursor: default;
     }
     .chat-instruction span {
-      color: #32cd32; /* lime green */
+      color: #59E115; /* bright lime green */
+      font-weight: 900;
+      text-shadow: 0 0 6px #59E115aa;
+    }
+    @keyframes shark-wiggle {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(5deg);
+      }
+      75% {
+        transform: rotate(-5deg);
+      }
     }
     footer {
       margin-top: 2rem;
@@ -89,9 +108,8 @@
 </main>
 
 <footer>
-  Powered by BrainBotCompany
+  Powered by YourChatbotCompany
 </footer>
 
 </body>
 </html>
-
