@@ -71,30 +71,7 @@
 
   <!-- Your UChat widget -->
   <script async defer src="https://www.uchat.com.au/js/widget/qvncevxwshmtag77/float.js"></script>
-  <script>
-    window.onload = function() {
-      for (let i = localStorage.length - 1; i >= 0; i--) {
-        const key = localStorage.key(i);
-        if (key && key.toLowerCase().includes('uchat')) {
-          localStorage.removeItem(key);
-        }
-      }
-      for (let i = sessionStorage.length - 1; i >= 0; i--) {
-        const key = sessionStorage.key(i);
-        if (key && key.toLowerCase().includes('uchat')) {
-          sessionStorage.removeItem(key);
-        }
-      }
-    };
-
-    // Open chat bubble on button click
-    function openChat() {
-      if (window.UChatWidget && window.UChatWidget.open) {
-        window.UChatWidget.open();
-      } else {
-        console.warn('UChat widget not loaded yet');
-      }
-    }
+  
   </script>
 </head>
 <body>
@@ -102,6 +79,27 @@
 <header>
   🦈 Hey There! Ready to Dive into Chat? 🦈
 </header>
+<script async defer src="https://www.uchat.com.au/js/widget/qvncevxwshmtag77/float.js"></script>
+
+<script>
+  function openChat() {
+    const maxAttempts = 10;
+    let attempts = 0;
+
+    function tryOpen() {
+      if (window.UChatWidget && typeof window.UChatWidget.open === 'function') {
+        window.UChatWidget.open();
+      } else if (attempts < maxAttempts) {
+        attempts++;
+        setTimeout(tryOpen, 300);
+      } else {
+        console.warn('UChat widget failed to load in time.');
+      }
+    }
+
+    tryOpen();
+  }
+</script>
 
 <main>
   <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
