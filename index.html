@@ -5,9 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clinic Chatbot Demo</title>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
-    
+
+    /* Reset & base */
     body {
       font-family: 'Comic Neue', Comic Sans MS, cursive, sans-serif;
       margin: 0; 
@@ -16,41 +18,40 @@
       color: #1a1a1a;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
       align-items: center;
-      justify-content: flex-start;
+      min-height: 100vh;
       text-align: center;
-      overflow-x: hidden;
     }
 
-    /* Title at top */
+    /* Title */
     h1.page-title {
       font-weight: 700; /* bold */
-      font-size: 6rem; /* 2 sizes bigger */
-      margin: 0 0 1.5rem 0;
-      color: #000000; /* black */
+      font-size: 5.5rem; /* approx 2 sizes bigger */
+      color: black;
       text-decoration: underline;
+      margin-bottom: 2rem;
       user-select: none;
     }
 
+    /* White content container */
     main {
-      max-width: 420px;
       background: white;
+      max-width: 420px;
+      width: 100%;
       padding: 2rem 1.5rem;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0, 120, 215, 0.25);
       position: relative;
-      overflow: visible;
     }
 
-    /* Container to position shark and bubbles */
+    /* Shark container to position bubbles */
     .shark-container {
       position: relative;
       width: 180px;
-      margin: 1rem auto 1.5rem;
+      margin: 0 auto 1.5rem;
     }
 
-    /* Shark wiggle animation */
+    /* Shark wiggle */
     @keyframes shark-wiggle {
       0%, 100% {
         transform: rotate(0deg);
@@ -73,16 +74,17 @@
       z-index: 10;
     }
 
-    /* Black bubbles styles and animation */
+    /* Bubbles floating up */
     .bubble {
       position: absolute;
-      bottom: 40px; /* approximate from shark's mouth */
+      bottom: 40px; /* roughly where shark's mouth is */
       background: rgba(0, 0, 0, 0.8);
       border-radius: 50%;
       opacity: 0.7;
       animation-name: bubble-float;
       animation-timing-function: ease-in;
       animation-iteration-count: infinite;
+      z-index: 5;
     }
 
     @keyframes bubble-float {
@@ -96,7 +98,7 @@
       }
     }
 
-    /* Bubble variations */
+    /* Different sizes, positions & delays for natural bubble effect */
     .bubble:nth-child(1) {
       width: 15px;
       height: 15px;
@@ -133,10 +135,10 @@
       animation-delay: 1s;
     }
 
+    /* Paragraph below shark */
     p {
       font-size: 1.2rem;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
+      margin: 0 0 1.5rem 0;
       line-height: 1.4;
     }
 
@@ -144,15 +146,15 @@
     .chat-instruction {
       font-weight: bold;
       font-size: 1.15rem;
-      color: #59E115;  /* bright lime green */
+      color: #59E115;  /* lime green */
       margin-top: 1.5rem;
       background: rgba(245, 241, 8, 1); /* bright yellow */
       border-radius: 20px;
       padding: 12px 20px;
       box-shadow: 0 4px 8px rgba(89, 225, 21, 0.4);
       display: inline-block;
-      transition: box-shadow 0.3s ease;
       user-select: none;
+      transition: box-shadow 0.3s ease;
     }
 
     .chat-instruction:hover {
@@ -161,7 +163,7 @@
     }
 
     .chat-instruction span {
-      color: #59E115; /* bright lime green */
+      color: #59E115; /* lime green */
       font-weight: 900;
       text-shadow: 0 0 6px #59E115aa;
     }
@@ -174,8 +176,9 @@
     }
   </style>
 
-  <!-- Your UChat widget -->
+  <!-- UChat widget -->
   <script async defer src="https://www.uchat.com.au/js/widget/qvncevxwshmtag77/float.js"></script>
+
 </head>
 <body>
 
@@ -186,7 +189,7 @@
 
     <div class="shark-container">
       <img src="pngtree-cute-cartoon-shark-png-image_8795322.png" alt="Cute shark mascot" class="shark" />
-      <!-- Bubbles must be inside this container -->
+      <!-- 5 black bubbles -->
       <div class="bubble"></div>
       <div class="bubble"></div>
       <div class="bubble"></div>
@@ -202,13 +205,16 @@
     <p class="chat-instruction">
       Please click the <span>green chat bubble</span> at the bottom right to start chatting!
     </p>
+
   </main>
 
   <footer>
-    Powered by YourChatbotCompany
+    Powered by BrainBotCompany
   </footer>
 
 </body>
+</html>
+
 </html>
 
 
