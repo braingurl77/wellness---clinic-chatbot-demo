@@ -47,7 +47,16 @@
   </style>
 
   <!-- Paste your UChat widget script here -->
-  <script async defer src="https://www.uchat.com.au/js/widget/qvncevxwshmtag77/float.js?resetSession=true"></script>
+  <script async defer src="https://www.uchat.com.au/js/widget/qvncevxwshmtag77/float.js"></script>
+
+<script>
+  window.UChatWidgetSettings = {
+    onLoad: function(widget) {
+      widget.resetSession();
+    }
+  };
+</script>
+
 </head>
 <body>
 
